@@ -91,6 +91,7 @@ void sum_vector_values(vector<int> day)
 }
 
 int main()
+try
 {
     string day;
     int val;
@@ -128,4 +129,17 @@ int main()
     sum_vector_values(sunday);
 
     cout << "The number of rejected values is: " << rejected << '\n';
+}
+
+catch (exception &e)
+{
+    cerr << "error: " << e.what() << '\n';
+    keep_window_open();
+    return 1;
+}
+catch (...)
+{
+    cerr << "Oops: unknown exception!\n";
+    keep_window_open();
+    return 2;
 }
