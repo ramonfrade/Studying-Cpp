@@ -101,7 +101,6 @@ try
     // presenting the game
     cout << "Let's play a game, it is called Bulls and Cows!\n";
     int x = 0;
-    bool play = true;
 
     // generating seed
     cout << "Enter a seed to generate random numbers: (just type any number) (type '|' if you want to stop)\n";
