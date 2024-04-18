@@ -16,7 +16,7 @@ vector<int> vec_guess(int x)
     return guess;
 }
 
-bool check_guess(vector<int> guess, vector<int> answer)
+bool check_guess(vector<int> guess)
 {
     // checking bulls
     for (int i = 0; i < answer.size(); i++)
@@ -84,7 +84,7 @@ try
         bulls = 0;
         cows = 0;
         vector<int> guess = vec_guess(x);
-        bool correct = check_guess(guess, answer);
+        bool correct = check_guess(guess);
         if (correct == true)
         {
             cout << "You got it right on the spot!\n";
