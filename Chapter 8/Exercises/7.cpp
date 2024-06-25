@@ -43,6 +43,7 @@ void sort_age(const vector<string> &name, const vector<string> copy_name, const 
 }
 
 int main()
+try
 {
     vector<string> name;
     vector<double> age;
@@ -68,4 +69,20 @@ int main()
     sort(name.begin(), name.end());
     sort_age(name, copy_name, age, sorted_age);
     print(name, sorted_age);
+}
+catch (exception &e)
+{
+    cerr << "exception: " << e.what() << endl;
+    char c;
+    while (cin >> c && c != ';')
+        ;
+    return 1;
+}
+catch (...)
+{
+    cerr << "exception\n";
+    char c;
+    while (cin >> c && c != ';')
+        ;
+    return 2;
 }
