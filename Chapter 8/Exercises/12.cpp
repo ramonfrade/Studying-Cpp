@@ -28,8 +28,21 @@ void print_until_ss(const vector<string> &v, const string &quit)
 }
 
 int main()
+try
 {
     vector<string> v{"ramon", "fluminense", "football", "quit", "pokemon", "quit", "messi"};
     print_until_s(v, "pokemon");
     print_until_ss(v, "quit");
+}
+catch (exception &e)
+{
+    cerr << "error: " << e.what() << '\n';
+    keep_window_open();
+    return 1;
+}
+catch (...)
+{
+    cerr << "Oops: unknown exception!\n";
+    keep_window_open();
+    return 2;
 }
