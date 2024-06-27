@@ -75,17 +75,13 @@ try
 }
 catch (exception &e)
 {
-    cerr << "exception: " << e.what() << endl;
-    char c;
-    while (cin >> c && c != ';')
-        ;
+    cerr << "error: " << e.what() << '\n';
+    keep_window_open();
     return 1;
 }
 catch (...)
 {
-    cerr << "exception\n";
-    char c;
-    while (cin >> c && c != ';')
-        ;
+    cerr << "Oops: unknown exception!\n";
+    keep_window_open();
     return 2;
 }
