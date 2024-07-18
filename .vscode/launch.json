@@ -5,14 +5,20 @@
       "name": "gdb - current file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "windows": {
+        "program": "${config:windows-output-file}",
+        "miDebuggerPath": "C:\\ProgramData\\mingw64\\mingw64\\bin\\gdb.exe"
+      },
+      "linux": {
+        "program": "${config:linux-output-file}",
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "C:\\ProgramData\\mingw64\\mingw64\\bin\\gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -25,13 +31,18 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "c++_build"
+      "preLaunchTask": "gcc_build"
     },
     {
       "name": "lldb - current file",
       "type": "lldb",
       "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "windows": {
+        "program": "${config:windows-output-file}"
+      },
+      "linux": {
+        "program": "${config:linux-output-file}"
+      },
       "args": [],
       "cwd": "${fileDirname}",
       // "setupCommands": [
@@ -46,7 +57,7 @@
       //     "ignoreFailures": true
       //   }
       // ],
-      "preLaunchTask": "clang++_build"
-    },
+      "preLaunchTask": "clang_build"
+    }
   ]
 }

@@ -13,10 +13,7 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
+  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -65,5 +62,15 @@
     "memory": "cpp",
     "memory_resource": "cpp",
     "numeric": "cpp"
-  }
+  },
+  "gcc-general-flags": "-std=c++20 -fdiagnostics-color=always -fno-omit-frame-pointer -fvar-tracking -fvar-tracking-assignments -g",
+  "clang-general-flags": "-std=c++20 -fdiagnostics-color=always -fno-omit-frame-pointer -g",
+  "clang-general-flags-window": "${config:clang-general-flags} -target x86_64-mingw64 -fms-extensions",
+  "linux-output-file": "${workspaceFolder}/build/${relativeFileDirname}/${fileBasenameNoExtension}",
+  "linux-output": "-o \"${config:linux-output-file}\"",
+  "windows-output-file": "${workspaceFolder}\\build\\${relativeFileDirname}\\${fileBasenameNoExtension}.exe",
+  "windows-output": "-o \"${config:windows-output-file}\"",
+  "linux-include": "-I${workspaceFolder}/include",
+  "windows-include": "-I${workspaceFolder}\\include",
+  "editor.formatOnSave": true
 }
