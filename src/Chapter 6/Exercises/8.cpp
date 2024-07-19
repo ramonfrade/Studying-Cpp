@@ -1,4 +1,4 @@
-#include "PPP2/std_lib_facilities.h"
+#include "ppp2/std_lib_facilities.h"
 
 vector<char> answer = {'r', 'a', 'm', 'o'};
 int bulls = 0;

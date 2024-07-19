@@ -1,4 +1,4 @@
-#include "PPP2/std_lib_facilities.h"
+#include "ppp2/std_lib_facilities.h"
 
 double ctof(double c) // converts Celsius to Fahrenheit
 {

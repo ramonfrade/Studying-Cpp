@@ -15,11 +15,13 @@
 	By Chapter 10, you don't need this file and after Chapter 21, you'll understand it
 
 	Revised April 25, 2010: simple_error() added
-	
+
 	Revised November 25 2013: remove support for pre-C++11 compilers, use C++11: <chrono>
 	Revised November 28 2013: add a few container algorithms
 	Revised June 8 2014: added #ifndef to workaround Microsoft C++11 weakness
 */
+
+#pragma once
 
 #ifndef H112
 #define H112 251113L
@@ -65,9 +67,7 @@ struct Range_error : out_of_range
 { // enhanced vector range error reporting
     int index;
 
-    Range_error(int i) : out_of_range("Range error: " + to_string(i)), index(i)
-    {
-    }
+    Range_error(int i) : out_of_range("Range error: " + to_string(i)), index(i) {}
 };
 
 // trivially range-checked vector (no iterator checking):
@@ -78,26 +78,18 @@ struct Vector : public std::vector<T>
 
 #ifdef _MSC_VER
     // microsoft doesn't yet support C++11 inheriting constructors
-    Vector()
-    {
-    }
+    Vector() {}
 
-    explicit Vector(size_type n) : std::vector<T>(n)
-    {
-    }
+    explicit Vector(size_type n) : std::vector<T>(n) {}
 
-    Vector(size_type n, const T& v) : std::vector<T>(n, v)
-    {
-    }
+    Vector(size_type n, const T& v) : std::vector<T>(n, v) {}
 
     template <class I>
     Vector(I first, I last) : std::vector<T>(first, last)
     {
     }
 
-    Vector(initializer_list<T> list) : std::vector<T>(list)
-    {
-    }
+    Vector(initializer_list<T> list) : std::vector<T>(list) {}
 #else
     using std::vector<T>::vector; // inheriting constructor
 #endif
@@ -158,9 +150,7 @@ namespace std
 
 struct Exit : runtime_error
 {
-    Exit() : runtime_error("Exit")
-    {
-    }
+    Exit() : runtime_error("Exit") {}
 };
 
 // error() simply disguises throws:

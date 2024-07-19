@@ -1,4 +1,4 @@
-#include "PPP2/std_lib_facilities.h"
+#include "ppp2/std_lib_facilities.h"
 
 vector<string> stringDigits{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 string inputDigits{"Operands must be digits from 0 to 9 (either as string or integer)\n"};

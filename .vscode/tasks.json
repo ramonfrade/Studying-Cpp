@@ -86,6 +86,24 @@
       },
       "problemMatcher": ["$gcc"],
       "detail": "Create build directory"
+    },
+    {
+      "type": "shell",
+      "label": "apply_formating",
+      "linux": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "find . -iname '*.h' -o -iname '*.cpp' -print0 | xargs -0 -I cppfile clang-format -i -style=file cppfile"
+        ]
+      },
+      "windows": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "find . -name \"*.cpp\" -exec clang-format -i -style=file {} \\; && find . -name \"*.h\" -exec clang-format -i -style=file {} \\;"
+        ]
+      }
     }
   ],
   "version": "2.0.0"

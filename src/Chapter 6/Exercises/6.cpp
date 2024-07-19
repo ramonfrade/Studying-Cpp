@@ -21,7 +21,7 @@ Verb:
           "swim"
 */
 
-#include "PPP2/std_lib_facilities.h"
+#include "ppp2/std_lib_facilities.h"
 
 // defining class
 class string_stream

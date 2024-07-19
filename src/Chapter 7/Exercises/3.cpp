@@ -7,7 +7,7 @@
     We have inserted 3 bugs that the compiler will catch and 3 that it won't.
 */
 
-#include "PPP2/std_lib_facilities.h"
+#include "ppp2/std_lib_facilities.h"
 
 struct Token // defining token class
 {

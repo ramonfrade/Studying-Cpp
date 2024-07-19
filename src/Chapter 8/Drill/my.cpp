@@ -1,5 +1,5 @@
 #include "my.h"
-#include "PPP2/std_lib_facilities.h"
+#include "ppp2/std_lib_facilities.h"
 
 int foo;
 
