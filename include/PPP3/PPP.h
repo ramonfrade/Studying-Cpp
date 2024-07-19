@@ -2,7 +2,7 @@
 #pragma once
 
 //import PPP;
-#include "PPP3/PPPheaders.h"
+#include "PPP3/internal/PPPheaders.h"
 using namespace PPP;
 using namespace std;
 
