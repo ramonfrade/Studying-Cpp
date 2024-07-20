@@ -14,8 +14,12 @@
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": ["$gcc"],
-      "dependsOn": ["c++_build"],
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": [
+        "clang_build"
+      ],
       "detail": "Execute bin for currently active source"
     },
     {
@@ -32,14 +36,18 @@
         "command": "cmd",
         "args": [
           "/c",
-          "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe ${config:gcc-general-flags} ${config:windows-include} \"${file}\" ${config:windows-output}"
+          "\\\"C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe\\\" ${config:gcc-general-flags} ${config:windows-include} \\\"${file}\\\" ${config:windows-output}"
         ]
       },
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": ["$gcc"],
-      "dependsOn": ["create_build_structure"],
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": [
+        "create_build_structure"
+      ],
       "detail": "Build currecnt file for linux"
     },
     {
@@ -56,7 +64,7 @@
         "command": "cmd",
         "args": [
           "/c",
-          "C:\\Program Files\\LLVM\\bin\\clang++.exe ${config:clang-general-flags-window} ${config:windows-include} \"${file}\" ${config:windows-output}"
+          "\\\"C:\\Program Files\\LLVM\\bin\\clang++.exe\\\" ${config:clang-general-flags-window} ${config:windows-include} \\\"${file}\\\" ${config:windows-output}"
         ]
       },
       "group": {
@@ -66,8 +74,12 @@
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": ["$gcc"],
-      "dependsOn": ["create_build_structure"],
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": [
+        "create_build_structure"
+      ],
       "detail": "Build currecnt file for linux"
     },
     {
@@ -75,16 +87,24 @@
       "label": "create_build_structure",
       "linux": {
         "command": "mkdir",
-        "args": ["-p", "build/${relativeFileDirname}"]
+        "args": [
+          "-p",
+          "build/${relativeFileDirname}"
+        ]
       },
       "windows": {
         "command": "cmd",
-        "args": ["/c", "mkdir", "build\\${relativeFileDirname}"]
+        "args": [
+          "/c",
+          "\"if not exist \\\"build\\${relativeFileDirname}\\\" mkdir \\\"build\\${relativeFileDirname}\\\"\""
+        ]
       },
       "options": {
         "cwd": "${workspaceFolder}"
       },
-      "problemMatcher": ["$gcc"],
+      "problemMatcher": [
+        "$gcc"
+      ],
       "detail": "Create build directory"
     },
     {

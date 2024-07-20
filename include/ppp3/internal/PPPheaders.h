@@ -18,7 +18,7 @@
 #include <unordered_map>
 
 #define PPP_EXPORT
-#include "PPP3/internal/PPP_support.h"
+#include "ppp3/internal/PPP_support.h"
 
 using namespace std;
 using namespace PPP;

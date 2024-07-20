@@ -13,7 +13,10 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -110,7 +113,7 @@
   "linux-output-file": "${workspaceFolder}/build/${relativeFileDirname}/${fileBasenameNoExtension}",
   "linux-output": "-o \"${config:linux-output-file}\"",
   "windows-output-file": "${workspaceFolder}\\build\\${relativeFileDirname}\\${fileBasenameNoExtension}.exe",
-  "windows-output": "-o \"${config:windows-output-file}\"",
+  "windows-output": "-o \\\"${config:windows-output-file}\\\"",
   "linux-include": "-I${workspaceFolder}/include",
   "windows-include": "-I${workspaceFolder}\\include",
   "editor.formatOnSave": true
