@@ -44,7 +44,7 @@ try
     }
 
     cout << "Names and scores are:\n";
-    for(int i = 0; i < nv_vec.size(); i++) { cout << nv_vec[i].name << ', ' << nv_vec[i].value << '\n'; }
+    for(int i = 0; i < nv_vec.size(); i++) { cout << nv_vec[i].name << ", " << nv_vec[i].value << '\n'; }
 }
 catch(exception& e)
 {
