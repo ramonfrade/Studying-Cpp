@@ -11,33 +11,54 @@ struct Date
 Date today; // a Date variable (a named object)
 Date tomorrow;
 
-// helper functions:
-
-void init_day(Date& dd, int y, int m, int d)
+void init_day(Date& dd, int y, int m, int d) //initialize and check if date is valid
 {
-    // check that (y,m,d) is a valid date
-    // if it is, use it to initialize dd
-    if(m < 1 || m > 12)
-        error("invalid month");
-    if(d < 1 || d > 31)
-        error("invalid day");
     if(y < 1)
+    {
         error("invalid year");
+    }
+    if(m < 1 || m > 12)
+    {
+        error("invalid month");
+    }
+    if(d < 1 || d > 31)
+    {
+        error("invalid day");
+    }
 
     dd.y = y;
     dd.m = m;
     dd.d = d;
 }
 
-void add_day(Date& dd, int n)
+void add_day(Date& dd, int n) // increase day by n
 {
-    // increase dd by n days
     dd.d += n;
-}
+    while(dd.d > 31)
+    {
+        ++dd.m;
+        if(dd.m > 12)
+        {
+            ++dd.y;
+            dd.m = 1;
+        }
+        dd.d -= 31;
+    }
+    while(dd.d < 1)
+    {
+        --dd.m;
+        if(dd.m < 1)
+        {
+            --dd.y;
+            if(dd.y < 1)
+            {
+                error("add day: invalid year");
+            }
 
-ostream& operator<<(ostream& os, const Date& d)
-{
-    return os << '(' << d.y << ',' << d.m << ',' << d.d << ')';
+            dd.m = 12;
+        }
+        dd.d += 31;
+    }
 }
 
 void f()
@@ -47,6 +68,11 @@ void f()
     add_day(tomorrow, 1);
 }
 
+ostream& operator<<(ostream& os, const Date& dd)
+{
+    return os << '(' << dd.y << ',' << dd.m << ',' << dd.d << ')';
+}
+
 int main()
 {
     try
@@ -54,6 +80,11 @@ int main()
         f();
         cout << "Today: " << today << '\n';
         cout << "Tomorrow: " << tomorrow << '\n';
+
+        Date invalid;
+        init_day(invalid, 2004, 13, -5);
+
+        cout << "invalid: " << invalid << '\n';
     }
     catch(exception& e)
     {
