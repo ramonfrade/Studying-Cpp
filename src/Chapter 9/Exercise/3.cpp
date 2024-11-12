@@ -8,9 +8,17 @@ class Name_pairs
 public:
     void read_names(); //reads a series of names
     void read_ages();  //prompts the user for an age for each name
+    void sort();       //sort name vector in alphabetical order
 
-    void print() const; //prints name[i], age[i] pairs
-    void sort();        //sort name vector in alphabetical order
+    const vector<string>& get_name() const
+    {
+        return name;
+    }
+
+    const vector<double>& get_age() const
+    {
+        return age;
+    }
 };
 
 void Name_pairs::read_names()
@@ -41,15 +49,6 @@ void Name_pairs::read_ages()
     }
 }
 
-void Name_pairs::print() const
-{
-    if(name.size() != age.size())
-    {
-        error("print(): name and age must be the same size");
-    }
-    for(int i = 0; i < name.size(); i++) { cout << '(' << name[i] << ", " << age[i] << ")\n"; }
-}
-
 void Name_pairs::sort()
 {
     if(name.size() != age.size())
@@ -72,6 +71,16 @@ void Name_pairs::sort()
     }
 }
 
+ostream& operator<<(ostream& os, const Name_pairs& n)
+{
+    if(n.get_name().size() != n.get_age().size())
+    {
+        error("<<: name and age sizes must be equal");
+    }
+
+    for(int i = 0; i < n.get_name().size(); i++) { os << '(' << n.get_name()[i] << ", " << n.get_age()[i] << ")\n"; }
+    return os;
+}
 int main()
 try
 {
@@ -79,10 +88,10 @@ try
     nomes.read_names();
     nomes.read_ages();
     cout << "Names and ages pre sort: \n";
-    nomes.print();
+    cout << nomes;
     nomes.sort();
     cout << "Names and ages after sort: \n";
-    nomes.print();
+    cout << nomes;
 }
 catch(exception& e)
 {
