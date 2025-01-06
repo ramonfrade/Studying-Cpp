@@ -6,6 +6,7 @@ public:
     //Default constructor
     Rational(int numerator, int denominator) : numerator_{numerator}, denominator_{denominator} {};
 
+    //non-modyfing functions
     int Numerator() const
     {
         return numerator_;
@@ -14,6 +15,11 @@ public:
     int Denominator() const
     {
         return denominator_;
+    }
+
+    double convert_to_double() const
+    {
+        return Numerator() / Denominator();
     }
 
 private:
