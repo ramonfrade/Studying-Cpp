@@ -1,7 +1,5 @@
 #include "ppp2/std_lib_facilities.h"
 
-#include "ppp2/std_lib_facilities.h"
-
 class Money
 {
 public:
