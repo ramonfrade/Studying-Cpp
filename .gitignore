@@ -4,4 +4,5 @@
 **/*.ld
 **/*.a
 **/*.obj
-build
+__pycache__
+**/*_moc.cpp

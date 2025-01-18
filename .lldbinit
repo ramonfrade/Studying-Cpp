@@ -1,0 +1,5 @@
+settings set target.load-script-from-symbol-file true
+
+command script import .vscode/lldb/qt6renderer_lldb/qt.py
+
+# command script import .vscode/lldb/qtcreator/qt.py

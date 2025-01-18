@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "gdb - current file",
+      "name": "[gdb] current file",
       "type": "cppdbg",
       "request": "launch",
       "windows": {
@@ -34,7 +34,7 @@
       "preLaunchTask": "gcc_build"
     },
     {
-      "name": "lldb - current file",
+      "name": "[lldb] current file",
       "type": "lldb",
       "request": "launch",
       "windows": {
@@ -58,6 +58,59 @@
       //   }
       // ],
       "preLaunchTask": "clang_build"
+    },
+    {
+      "name": "[gdb-gui] current file",
+      "type": "cppdbg",
+      "request": "launch",
+      "windows": {
+        "program": "${config:win-gui-final}",
+        "miDebuggerPath": "C:\\ProgramData\\mingw64\\mingw64\\bin\\gdb.exe"
+      },
+      "linux": {
+        "program": "${config:linux-gui-final}",
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "postRemoteConnectCommands": [
+        {
+          "text": "source ${workspaceFolder}\\.gdbinit",
+          "ignoreFailures": false
+        }
+      ],
+      "preLaunchTask": "gcc-build-graphics"
+    },
+    {
+      "name": "[lldb-gui] current file",
+      "type": "lldb",
+      "request": "launch",
+      "windows": {
+        "program": "${config:win-gui-final}"
+      },
+      "linux": {
+        "program": "${linux:win-gui-final}"
+      },
+      "args": [],
+      "initCommands": ["command source ${workspaceFolder}/.lldbinit"],
+      "cwd": "${fileDirname}",
+      "preLaunchTask": "gcc-build-graphics"
     }
   ]
 }
