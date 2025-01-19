@@ -1,11 +1,4 @@
 {
-  "options": {
-    "env": {
-      "LIBRARY_PATH": "${config:win-gui-lib-path}",
-      "CPLUS_INCLUDE_PATH": "${config:win-gui-inc};${config:windows-include-path}"
-    }
-    // "shell": { "executable": "cmd" }
-  },
   "tasks": [
     {
       "type": "shell",
@@ -38,7 +31,7 @@
         "command": "cmd",
         "args": [
           "/c",
-          "\\\"C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe\\\" ${config:gcc-general-flags} ${config:windows-include} \\\"${file}\\\" ${config:windows-output}"
+          "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe ${config:gcc-general-flags} ${config:windows-include} \\\"${file}\\\" ${config:windows-output}"
         ]
       },
       "options": {
