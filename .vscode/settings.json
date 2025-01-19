@@ -158,7 +158,7 @@
   "win-gui-hdr-dir": "${config:windows-include-path}\\ppp3\\graphics",
   "win-gui-inc-flag": "-I${config:windows-include-path} -isystem ${config:w-psx-qt}/include -isystem ${config:w-psx-qt}/include/QtCore -isystem ${config:w-psx-qt}/include/QtWidgets -isystem ${config:w-psx-qt}/include/QtGui",
   "win-gui-libs": "-lQt6Core -lQt6Widgets -lQt6Gui",
-  "win-gui-defs": "-DQT_STATIC_BUILD -DQT_GUI_LIB -DQT_CORE_LIB -DQT_STATIC",
+  "win-gui-defs": "-DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB",
   "win-clang-cxx": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
   "win-gcc-cxx": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe",
   "win-qtdeploy": "${config:w-qt}\\bin\\windeployqt.exe",
