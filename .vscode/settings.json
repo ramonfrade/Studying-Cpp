@@ -163,7 +163,7 @@
   "win-gui-libs": "-lQt6Core -lQt6Widgets -lQt6Gui",
   "win-gui-defs": "-DQT_STATIC_BUILD -DQT_GUI_LIB -DQT_CORE_LIB -DQT_STATIC",
   "win-gui-deps": "${config:win-gui-src} ${config:win-gui-libs} ${config:win-gui-defs}",
-  "win-clang-cxx": "\\\"C:\\Program Files\\LLVM\\bin\\clang++.exe\\\"",
+  "win-clang-cxx": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
   "win-gcc-cxx": "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe",
   "win-moc-exe": "${config:w-qt}\\bin\\moc.exe",
   "win-qtdeploy": "${config:w-qt}\\bin\\windeployqt.exe",

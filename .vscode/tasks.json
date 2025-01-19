@@ -117,7 +117,7 @@
           "EXE_PATH": "${config:win-gui-final}",
           "QT_LIBS": "${config:win-gui-libs}",
           "QT_FLAGS": "${config:win-gui-defs}",
-          "TARGET_SRC": "\"${file}\""
+          "TARGET_SRC": "${file}"
         }
       },
       "problemMatcher": ["$gcc"],
