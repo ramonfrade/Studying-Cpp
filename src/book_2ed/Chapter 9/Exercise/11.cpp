@@ -24,7 +24,7 @@ int n_leapyears(int y)
 }
 
 // number of days in the year before Month m, ignoring leap years
-int nmonth(Month m)
+int nmonth2(Month m)
 {
     switch(m)
     {
@@ -46,8 +46,8 @@ int nmonth(Month m)
 // number of day in year
 int day_in_year(const Date& d)
 {
-    int diy = nmonth(d.month()); // days in months before d
-    diy += d.day();              // days in month of d
+    int diy = nmonth2(d.month()); // days in months before d
+    diy += d.day();               // days in month of d
     if(Chrono::leapyear(d.year()) && d.month() > Month::feb)
         ++diy; // add day if leap year and later than February
     return diy;
