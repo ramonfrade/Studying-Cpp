@@ -9,17 +9,12 @@
       "linux": {
         "command": "${config:linux-output-file}"
       },
-      "command": "${workspaceFolder}/build/${fileDirname}/${fileBasenameNoExtension}.exe",
       "args": [],
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "dependsOn": [
-        "clang_build"
-      ],
+      "problemMatcher": ["$gcc"],
+      "dependsOn": ["clang_build"],
       "detail": "Execute bin for currently active source"
     },
     {
@@ -36,18 +31,14 @@
         "command": "cmd",
         "args": [
           "/c",
-          "\\\"C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe\\\" ${config:gcc-general-flags} ${config:windows-include} \\\"${file}\\\" ${config:windows-output}"
+          "C:\\ProgramData\\mingw64\\mingw64\\bin\\g++.exe ${config:gcc-general-flags} ${config:windows-include} \\\"${file}\\\" ${config:windows-output}"
         ]
       },
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "dependsOn": [
-        "create_build_structure"
-      ],
+      "problemMatcher": ["$gcc"],
+      "dependsOn": ["create_build_structure"],
       "detail": "Build currecnt file for linux"
     },
     {
@@ -74,12 +65,8 @@
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "dependsOn": [
-        "create_build_structure"
-      ],
+      "problemMatcher": ["$gcc"],
+      "dependsOn": ["create_build_structure"],
       "detail": "Build currecnt file for linux"
     },
     {
@@ -87,10 +74,7 @@
       "label": "create_build_structure",
       "linux": {
         "command": "mkdir",
-        "args": [
-          "-p",
-          "build/${relativeFileDirname}"
-        ]
+        "args": ["-p", "build/${relativeFileDirname}"]
       },
       "windows": {
         "command": "cmd",
@@ -102,10 +86,93 @@
       "options": {
         "cwd": "${workspaceFolder}"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
+      "problemMatcher": ["$gcc"],
       "detail": "Create build directory"
+    },
+    {
+      "type": "shell",
+      "label": "clang-build-graphics",
+      "linux": {},
+      "windows": {
+        "command": "cmd",
+        "args": ["/c", "make deploy"]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "CXX": "${config:win-clang-cxx}",
+          "CXX_FLAGS": "${config:clang-general-flags}",
+          "QT_PATH": "${config:w-qt}",
+          "INCLUDES": "${config:win-gui-inc-flag}",
+          "GUI_BUILD_DIR": "${config:win-gui-build-dir}",
+          "GUI_SRC_DIR": "${config:win-gui-src-dir}",
+          "GUI_HDR_DIR": "${config:win-gui-hdr-dir}",
+          "EXE_PATH": "${config:win-gui-final}",
+          "QT_LIBS": "${config:win-gui-libs}",
+          "QT_FLAGS": "${config:win-gui-defs}",
+          "TARGET_SRC": "${file}"
+        }
+      },
+      "problemMatcher": ["$gcc"],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "detail": "Deploy qt dependencies to ${workspaceFolder}\\lib"
+    },
+
+    {
+      "type": "shell",
+      "label": "gcc-build-graphics",
+      "linux": {},
+      "windows": {
+        "command": "cmd",
+        "args": ["/c", "make deploy"]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "CXX": "${config:win-gcc-cxx}",
+          "CXX_FLAGS": "${config:gcc-general-flags}",
+          "QT_PATH": "${config:w-qt}",
+          "INCLUDES": "${config:win-gui-inc-flag}",
+          "GUI_BUILD_DIR": "${config:win-gui-build-dir}",
+          "GUI_SRC_DIR": "${config:win-gui-src-dir}",
+          "GUI_HDR_DIR": "${config:win-gui-hdr-dir}",
+          "EXE_PATH": "${config:win-gui-final}",
+          "QT_LIBS": "${config:win-gui-libs}",
+          "QT_FLAGS": "${config:win-gui-defs}",
+          "TARGET_SRC": "${file}"
+        }
+      },
+      "problemMatcher": ["$gcc"],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "detail": "Deploy qt dependencies to ${workspaceFolder}\\lib"
+    },
+    {
+      "type": "shell",
+      "label": "clean-graphics",
+      "linux": {},
+      "windows": {
+        "command": "cmd",
+        "args": ["/c", "make clean"]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "GUI_BUILD_DIR": "${config:win-gui-build-dir}",
+          "EXE_PATH": "${config:win-gui-final}"
+        }
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Clean Graphics build"
     },
     {
       "type": "shell",
@@ -123,7 +190,8 @@
           "/c",
           "find . -name \"*.cpp\" -exec clang-format -i -style=file {} \\; && find . -name \"*.h\" -exec clang-format -i -style=file {} \\;"
         ]
-      }
+      },
+      "problemMatcher": []
     }
   ],
   "version": "2.0.0"
