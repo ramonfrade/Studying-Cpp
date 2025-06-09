@@ -24,13 +24,13 @@ namespace PPP
 
         T& operator[](size_t i)
         {
-            std::cerr << "PPP::vector::[]\n";
+            //std::cerr << "PPP::vector::[]\n";
             return this->std::vector<T>::at(i);
         }
 
         const T& operator[](size_t i) const
         {
-            std::cerr << "PPP::vector::[] const\n";
+            //std::cerr << "PPP::vector::[] const\n";
             return this->std::vector<T>::at(i);
         }
 
@@ -85,9 +85,7 @@ namespace PPP
 
     PPP_EXPORT struct Exit : std::runtime_error
     {
-        Exit() : std::runtime_error("Exit")
-        {
-        }
+        Exit() : std::runtime_error("Exit") {}
     };
 
     PPP_EXPORT inline void
