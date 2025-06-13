@@ -44,13 +44,13 @@ namespace PPP
 
         char& operator[](size_t i)
         {
-            std::cerr << "PPP::string::[]\n";
+            //std::cerr << "PPP::string::[]\n";
             return this->std::string::at(i);
         }
 
         const char& operator[](size_t i) const
         {
-            std::cerr << "PPP::string::[] const\n";
+            //std::cerr << "PPP::string::[] const\n";
             return this->std::string::at(i);
         }
 
