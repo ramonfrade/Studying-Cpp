@@ -1,6 +1,6 @@
 #include "ppp3/ppp.h"
 
-bool isvowel(const char& c)
+bool isvowel(const char c)
 {
     if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O'
        || c == 'U')
