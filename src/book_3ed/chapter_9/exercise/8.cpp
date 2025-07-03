@@ -92,6 +92,8 @@ int main()
     output = sortInput(processLine(input));
 
     ofstream ofs("8.txt");
+    if(!ofs)
+        error("cant open output file");
 
     for(int i = 0; i < output.size(); i++) { ofs << output[i] << '\n'; }
 }
