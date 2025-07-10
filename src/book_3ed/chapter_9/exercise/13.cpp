@@ -8,7 +8,6 @@ int main()
         error("cant open input file");
     }
 
-    string input;
     char c;
 
     int count_alpha = 0;
