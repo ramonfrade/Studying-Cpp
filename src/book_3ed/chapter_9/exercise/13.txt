@@ -1,0 +1,7 @@
+Hello, World! 123
+This is a test.
+New line, with punctuation: #, $, %, &, *.
+Whitespace	  tabs and spaces.
+
+Hex digits: 0x1A3F
+Control chars? Maybe not here.
